@@ -1,0 +1,6 @@
+customer_id,name,email,age,income_bracket,risk_score
+1,Alice Johnson,alice@example.com,34,high,0.12
+2,Bob Smith,bob@example.com,45,medium,0.35
+3,Carol Davis,carol@example.com,28,low,0.08
+4,David Wilson,david@example.com,52,high,0.22
+5,Eve Brown,eve@example.com,39,medium,0.18

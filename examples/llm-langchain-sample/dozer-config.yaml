@@ -1,0 +1,47 @@
+# Dozer configuration for the LLM + LangChain sample
+# Sources multiple datasets and exposes a unified REST API.
+
+api:
+  port: 8080
+  host: 0.0.0.0
+
+sources:
+  - name: customers
+    type: file
+    path: ./data/customers.csv
+    format: csv
+  - name: transactions
+    type: file
+    path: ./data/transactions.csv
+    format: csv
+  - name: credit_cards
+    type: file
+    path: ./data/credit_cards.csv
+    format: csv
+
+transformations:
+  - name: customer_profile
+    sql: |
+      SELECT
+        c.customer_id,
+        c.name,
+        c.email,
+        c.age,
+        c.income_bracket,
+        c.risk_score,
+        COUNT(t.transaction_id) AS transaction_count,
+        COALESCE(SUM(t.amount), 0) AS total_spend
+      FROM customers c
+      LEFT JOIN transactions t ON c.customer_id = t.customer_id
+      GROUP BY c.customer_id, c.name, c.email, c.age, c.income_bracket, c.risk_score
+
+endpoints:
+  - name: customer_profile
+    path: /customer_profile
+    table: customer_profile
+  - name: credit_cards
+    path: /credit_cards
+    table: credit_cards
+  - name: transactions
+    path: /transactions
+    table: transactions

@@ -1,0 +1,12 @@
+transaction_id,customer_id,amount,category,merchant,date
+1,1,120.50,groceries,Whole Foods,2026-10-01
+2,1,45.00,transport,Uber,2026-10-03
+3,1,899.99,electronics,Best Buy,2026-10-15
+4,2,34.20,groceries,Trader Joe's,2026-10-02
+5,2,1200.00,travel,Delta Airlines,2026-10-10
+6,3,15.00,coffee,Starbucks,2026-10-05
+7,3,250.00,shopping,Amazon,2026-10-12
+8,4,60.00,dining,Chipotle,2026-10-08
+9,4,450.00,utilities,PG&E,2026-10-14
+10,5,78.30,groceries,Safeway,2026-10-06
+11,5,320.00,shopping,Target,2026-10-18
